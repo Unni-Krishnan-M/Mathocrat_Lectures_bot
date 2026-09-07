@@ -1,0 +1,27 @@
+# Secrets -- never commit these
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.json
+
+# Netlify
+.netlify/
+
+# Node
+node_modules/
+
+# Python
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# OS / editor
+.DS_Store
+*.swp
+.idea/
+.vscode/

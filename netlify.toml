@@ -1,0 +1,15 @@
+# Netlify configuration for the Telegram webhook bot.
+#
+# Note: Netlify Functions support JavaScript/TypeScript and Go only -- there is
+# no Python function runtime. The bot therefore runs as a zero-dependency Node
+# ESM function. The original Python polling bot is preserved under legacy/.
+
+[build]
+  command = "echo 'no build step required'"
+  publish = "public"
+
+[functions]
+  # Shared modules live in lib/ (outside this directory) so Netlify does not
+  # treat them as separate functions; esbuild follows the imports and bundles.
+  directory    = "netlify/functions"
+  node_bundler = "esbuild"
