@@ -8,7 +8,7 @@ import { handleUpdate } from "../lib/bot.mjs";
 const msg = (text) => ({ message: { chat: { id: 42 }, text } });
 const only = async (u) => (await handleUpdate(u))[0];
 
-assert.match((await only(msg("/start"))).text, /Mathocrat_Lectures_bot/);
+assert.equal((await only(msg("/start"))).text, "What lectures do you want?");
 assert.equal((await only(msg("/start"))).chatId, 42);
 assert.match((await only(msg("/help"))).text, /\/start.*\n.*\/help/s);
 assert.match((await only(msg("/help@Mathocrat_Lectures_bot"))).text, /\/start/);
